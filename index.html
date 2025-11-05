@@ -2,156 +2,418 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Cassino Impossível</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎰 Cassino Impossível 🎰</title>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
 
     body {
-      background: #1e1f1f;
+      background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 50%, #1a0a0a 100%);
+      background-attachment: fixed;
       color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Efeito de particulas brilhantes */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent);
+      background-size: 200% 200%;
+      animation: sparkle 8s linear infinite;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes sparkle {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
     }
 
     header {
-      background: #c62828;
+      background: linear-gradient(135deg, #d32f2f 0%, #c62828 50%, #b71c1c 100%);
       width: 100%;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
+      box-shadow: 0 5px 30px rgba(255, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+      border-bottom: 3px solid #ffd700;
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
+      font-family: 'Righteous', cursive;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                   0 0 40px rgba(255, 0, 0, 0.6),
+                   2px 2px 4px rgba(0, 0, 0, 0.8);
+      animation: neonPulse 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      from {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                     0 0 40px rgba(255, 0, 0, 0.6),
+                     2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+      to {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                     0 0 60px rgba(255, 0, 0, 0.8),
+                     2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
     }
 
     main {
-      margin: 30px auto;
+      margin: 40px auto;
       width: 90%;
-      max-width: 800px;
-      background: #2c2c2c;
-      padding: 30px;
-      border-radius: 8px;
+      max-width: 900px;
+      background: linear-gradient(145deg, #2c2c2c 0%, #1a1a1a 100%);
+      padding: 40px;
+      border-radius: 20px;
       text-align: center;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8),
+                  0 0 30px rgba(255, 215, 0, 0.3);
+      border: 2px solid #ffd700;
+      position: relative;
+      z-index: 1;
+    }
+
+    main h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #ffd700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      font-family: 'Righteous', cursive;
     }
 
     .machine-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
-      margin: 20px 0;
+      gap: 25px;
+      margin: 40px 0;
+      perspective: 1000px;
     }
 
     .machine-reel {
-      width: 100px;
-      height: 100px;
-      background: #444;
-      border-radius: 8px;
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      color: #fff;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      font-size: 3.5rem;
+      color: #ffd700;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8),
+                  0 0 20px rgba(255, 215, 0, 0.4),
+                  0 5px 15px rgba(0, 0, 0, 0.5);
+      border: 3px solid #444;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .machine-reel::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.3s;
+    }
+
+    .machine-reel:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8),
+                  0 0 30px rgba(255, 215, 0, 0.6),
+                  0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .machine-reel.spinning {
+      animation: spin 0.1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotateX(0deg); }
+      100% { transform: rotateX(360deg); }
     }
 
     .spin-button {
-      background: #e53935;
+      background: linear-gradient(135deg, #ff6b6b 0%, #e53935 50%, #c62828 100%);
       color: #fff;
       border: none;
-      padding: 15px 30px;
-      font-size: 1rem;
-      border-radius: 6px;
+      padding: 18px 50px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 50px;
       cursor: pointer;
-      margin-bottom: 20px;
-      transition: background 0.2s;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(229, 57, 53, 0.5),
+                  0 0 30px rgba(255, 107, 107, 0.3);
+      border: 2px solid #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Righteous', cursive;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spin-button::before {
+      content: '🎰';
+      position: absolute;
+      left: 20px;
+      font-size: 1.5rem;
+    }
+
+    .spin-button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .spin-button:hover::after {
+      width: 300px;
+      height: 300px;
     }
 
     .spin-button:hover {
-      background: #b71c1c;
+      background: linear-gradient(135deg, #ff8787 0%, #ff5252 50%, #e53935 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(229, 57, 53, 0.7),
+                  0 0 40px rgba(255, 107, 107, 0.5);
+    }
+
+    .spin-button:active {
+      transform: translateY(-1px);
+    }
+
+    .spin-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     .result {
-      font-size: 1.3rem;
-      margin: 20px 0;
-      padding: 10px;
-      border-radius: 6px;
-      background: #333;
+      font-size: 1.5rem;
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+      border: 2px solid #444;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5),
+                  inset 0 0 20px rgba(0, 0, 0, 0.3);
+      font-weight: 600;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .result.win {
+      background: linear-gradient(145deg, #1b5e20, #2e7d32);
+      border-color: #4caf50;
+      box-shadow: 0 5px 30px rgba(76, 175, 80, 0.6);
+      animation: winPulse 0.5s ease-in-out 3;
+    }
+
+    .result.lose {
+      background: linear-gradient(145deg, #b71c1c, #c62828);
+      border-color: #e53935;
+      box-shadow: 0 5px 30px rgba(229, 57, 53, 0.6);
+      animation: shakeLose 0.5s ease-in-out;
+    }
+
+    @keyframes winPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes shakeLose {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
     }
 
     /* Seção fictícia de pagamento */
     .payment-section {
-      margin-top: 30px;
-      background: #3c3c3c;
-      padding: 20px;
-      border-radius: 8px;
+      margin-top: 50px;
+      background: linear-gradient(145deg, #3c3c3c, #2a2a2a);
+      padding: 35px;
+      border-radius: 20px;
       text-align: left;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+                  inset 0 0 20px rgba(0, 0, 0, 0.3);
+      border: 2px solid #555;
     }
 
     .payment-section h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #ffd700;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      font-family: 'Righteous', cursive;
     }
 
     .payment-form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      max-width: 400px;
+      gap: 20px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
     .payment-form label {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1rem;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      color: #ffd700;
+      display: block;
     }
 
     .payment-form input {
-      padding: 10px;
-      border: 1px solid #555;
-      border-radius: 4px;
-      background: #2c2c2c;
+      padding: 14px 18px;
+      border: 2px solid #555;
+      border-radius: 10px;
+      background: #1a1a1a;
       color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .payment-form input:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      background: #252525;
+    }
+
+    .payment-form input::placeholder {
+      color: #888;
     }
 
     .bet-button {
-      background: #e53935;
+      background: linear-gradient(135deg, #ff6b6b 0%, #e53935 50%, #c62828 100%);
       color: #fff;
       border: none;
-      padding: 15px 30px;
-      font-size: 1rem;
-      border-radius: 6px;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 10px;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      box-shadow: 0 5px 20px rgba(229, 57, 53, 0.5);
+      border: 2px solid #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Righteous', cursive;
     }
 
     .bet-button:hover {
-      background: #b71c1c;
+      background: linear-gradient(135deg, #ff8787 0%, #ff5252 50%, #e53935 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(229, 57, 53, 0.7);
+    }
+
+    .bet-button:active {
+      transform: translateY(-1px);
     }
 
     footer {
       margin-top: auto;
       width: 100%;
-      background: #c62828;
+      background: linear-gradient(135deg, #d32f2f 0%, #c62828 50%, #b71c1c 100%);
       text-align: center;
-      padding: 10px 0;
+      padding: 20px 0;
+      box-shadow: 0 -5px 30px rgba(255, 0, 0, 0.4);
+      border-top: 2px solid #ffd700;
+      position: relative;
+      z-index: 1;
     }
 
     footer p {
-      font-size: 0.9rem;
+      font-size: 1rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      font-weight: 500;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+      }
+
+      main {
+        padding: 25px;
+      }
+
+      main h2 {
+        font-size: 1.4rem;
+      }
+
+      .machine-container {
+        gap: 15px;
+      }
+
+      .machine-reel {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+
+      .spin-button {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+      }
+
+      .result {
+        font-size: 1.2rem;
+        padding: 15px;
+      }
+
+      .payment-section {
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -203,41 +465,141 @@
   </main>
 
   <footer>
-    <p>&copy; 2024 - Cassino Impossível. Brincadeira garantida, vitória não.</p>
+        <p>&copy; 2025 - Cassino Impossível. Brincadeira garantida, vitória não. 🎰</p>
   </footer>
 
   <script>
     // SIMBOLOS DO CAÇA-NÍQUEL
-    const simbolos = ["♣", "♦", "♥", "♠", "7", "BAR"];
+    const simbolos = ["🍒", "🍋", "🍊", "🍉", "💎", "7️⃣", "⭐", "🔔"];
+    let isSpinning = false;
 
-    // FUNÇÃO GIRAR: SEMPRE PERDE
+    // FUNÇÃO GIRAR COM ANIMAÇÃO
     function girar() {
+      if (isSpinning) return;
+      
+      isSpinning = true;
       const reel1 = document.getElementById("reel1");
       const reel2 = document.getElementById("reel2");
       const reel3 = document.getElementById("reel3");
       const resultEl = document.getElementById("result");
+      const spinBtn = document.querySelector(".spin-button");
 
-      // Embaralha e escolhe 3 símbolos diferentes.
-      const shuffled = [...simbolos].sort(() => 0.5 - Math.random());
-      const chosen = shuffled.slice(0, 3);
+      // Desabilita o botão
+      spinBtn.disabled = true;
 
-      // Atualiza os rolos
-      reel1.textContent = chosen[0];
-      reel2.textContent = chosen[1];
-      reel3.textContent = chosen[2];
+      // Remove classes anteriores
+      resultEl.classList.remove("win", "lose");
+      resultEl.textContent = "🎰 Girando... 🎰";
 
-      // Sempre perde...
-      resultEl.textContent = "Você perdeu! Tente novamente (ou desista).";
+      // Adiciona classe de animação
+      reel1.classList.add("spinning");
+      reel2.classList.add("spinning");
+      reel3.classList.add("spinning");
+
+      // Animação de símbolos mudando rapidamente
+      let iterations = 0;
+      const maxIterations = 20;
+      
+      const spinInterval = setInterval(() => {
+        reel1.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+        reel2.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+        reel3.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+        iterations++;
+
+        if (iterations >= maxIterations) {
+          clearInterval(spinInterval);
+          finalizarGiro();
+        }
+      }, 100);
+    }
+
+    function finalizarGiro() {
+      const reel1 = document.getElementById("reel1");
+      const reel2 = document.getElementById("reel2");
+      const reel3 = document.getElementById("reel3");
+      const resultEl = document.getElementById("result");
+      const spinBtn = document.querySelector(".spin-button");
+
+      // Para a animação de forma escalonada
+      setTimeout(() => {
+        reel1.classList.remove("spinning");
+        const final1 = simbolos[Math.floor(Math.random() * simbolos.length)];
+        reel1.textContent = final1;
+      }, 300);
+
+      setTimeout(() => {
+        reel2.classList.remove("spinning");
+        const final2 = simbolos[Math.floor(Math.random() * simbolos.length)];
+        reel2.textContent = final2;
+      }, 600);
+
+      setTimeout(() => {
+        reel3.classList.remove("spinning");
+        // Garante que pelo menos um símbolo seja diferente
+        let final3;
+        do {
+          final3 = simbolos[Math.floor(Math.random() * simbolos.length)];
+        } while (final3 === reel1.textContent && final3 === reel2.textContent);
+        
+        reel3.textContent = final3;
+
+        // Verifica resultado
+        const symbols = [reel1.textContent, reel2.textContent, reel3.textContent];
+        
+        // 0.1% de chance de ganhar (só pra dar esperança)
+        if (Math.random() < 0.001) {
+          reel3.textContent = reel1.textContent;
+          resultEl.textContent = "🎉 IMPOSSÍVEL! VOCÊ GANHOU! 🎉";
+          resultEl.classList.add("win");
+        } else {
+          const mensagens = [
+            "😢 Quase! Tente de novo!",
+            "💸 Você perdeu! Mas não desista!",
+            "🎰 Opa! Não foi dessa vez!",
+            "😅 Sorte na próxima! (talvez)",
+            "🎲 Perdeu! Mas estava perto... (não)",
+            "💔 Não foi dessa vez, campeão!",
+            "🌟 Continue tentando! A sorte está chegando... (mentira)"
+          ];
+          resultEl.textContent = mensagens[Math.floor(Math.random() * mensagens.length)];
+          resultEl.classList.add("lose");
+        }
+
+        // Reabilita o botão
+        spinBtn.disabled = false;
+        isSpinning = false;
+      }, 900);
     }
 
     // FUNÇÃO PARA FORMULÁRIO FALSO
     function fazerPagamentoFake(event) {
-      event.preventDefault(); // Impede envio real
+      event.preventDefault();
 
-      // Poderia exibir uma mensagem de “falha” ou “pagamento negado”
-      alert("Pagamento negado! Esse cassino é impossível de ganhar ou pagar!");
+      const nomeCartao = document.getElementById("nomeCartao").value;
+      
+      // Mensagens divertidas de rejeição
+      const mensagens = [
+        `Desculpe ${nomeCartao.split(' ')[0]}, mas até o banco riu dessa tentativa! 😂`,
+        "💳 Cartão recusado! Ele tem amor próprio.",
+        "🚫 Pagamento negado! Esse cassino é impossível de ganhar OU pagar!",
+        "❌ Transação rejeitada! Seu banco está te protegendo.",
+        "🎭 Nice try! Mas não hoje, campeão!",
+        "🔒 Bloqueado! Nem tente, esse jogo é impossível mesmo!"
+      ];
+
+      alert(mensagens[Math.floor(Math.random() * mensagens.length)]);
+      
+      // Reseta o formulário
+      event.target.reset();
+      
       return false;
     }
-  </script>
-</body>
-</html>
+
+    // Adiciona efeito de hover nos rolos
+    document.addEventListener('DOMContentLoaded', () => {
+      const reels = document.querySelectorAll('.machine-reel');
+      reels.forEach((reel, index) => {
+        reel.style.animationDelay = `${index * 0.1}s`;
+      });
+    });
+  </script>\r\n</body>\r\n</html>
