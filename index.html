@@ -26,6 +26,31 @@
       overflow-x: hidden;
     }
 
+    /* Elementos decorativos de cassino */
+    body::after {
+      content: '♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔 ♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 2rem;
+      line-height: 4rem;
+      word-wrap: break-word;
+      word-break: break-all;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+      text-align: center;
+      padding: 20px;
+      animation: float 30s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20%); }
+    }
+
     /* Efeito de particulas brilhantes */
     body::before {
       content: '';
@@ -523,6 +548,36 @@
       margin-bottom: 15px;
     }
 
+    /* Elementos flutuantes de cassino */
+    .casino-element {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatElement 15s ease-in-out infinite;
+    }
+
+    @keyframes floatElement {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-30px) rotate(180deg);
+      }
+    }
+
+    .casino-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .casino-element:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+    .casino-element:nth-child(3) { top: 40%; left: 15%; animation-delay: 4s; }
+    .casino-element:nth-child(4) { top: 60%; right: 8%; animation-delay: 1s; }
+    .casino-element:nth-child(5) { top: 75%; left: 10%; animation-delay: 3s; }
+    .casino-element:nth-child(6) { top: 30%; right: 20%; animation-delay: 5s; }
+    .casino-element:nth-child(7) { top: 85%; right: 15%; animation-delay: 2.5s; }
+    .casino-element:nth-child(8) { top: 15%; left: 25%; animation-delay: 4.5s; }
+    .casino-element:nth-child(9) { top: 50%; left: 5%; animation-delay: 1.5s; }
+    .casino-element:nth-child(10) { top: 70%; right: 25%; animation-delay: 3.5s; }
+
     /* Responsividade */
     @media (max-width: 768px) {
       header h1 {
@@ -655,6 +710,18 @@
   </style>
 </head>
 <body>
+  <!-- Elementos decorativos flutuantes -->
+  <div class="casino-element">♠</div>
+  <div class="casino-element">♥</div>
+  <div class="casino-element">♣</div>
+  <div class="casino-element">♦</div>
+  <div class="casino-element">🎰</div>
+  <div class="casino-element">🎲</div>
+  <div class="casino-element">🃏</div>
+  <div class="casino-element">💎</div>
+  <div class="casino-element">🍒</div>
+  <div class="casino-element">⭐</div>
+
   <header>
     <h1>Cassino <b>Impossível de Ganhar</b></h1>
   </header>
