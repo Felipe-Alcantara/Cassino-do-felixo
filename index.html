@@ -246,6 +246,34 @@
       transition: all 0.3s ease;
     }
 
+    .info-button {
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 50%, #2e6da4 100%);
+      color: #fff;
+      border: none;
+      padding: 14px 35px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+      border: 2px solid #5da3e8;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .info-button:hover {
+      background: linear-gradient(135deg, #5da3e8 0%, #4a90e2 50%, #357abd 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 25px rgba(74, 144, 226, 0.6);
+    }
+
+    .info-button:active {
+      transform: translateY(0);
+    }
+
     .result.win {
       background: linear-gradient(145deg, #1b5e20, #2e7d32);
       border-color: #4caf50;
@@ -420,6 +448,13 @@
         padding: 15px;
       }
 
+      .info-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 350px;
+      }
+
       .payment-section {
         padding: 20px 15px;
       }
@@ -487,6 +522,12 @@
         padding: 12px;
       }
 
+      .info-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+
       .payment-section {
         padding: 15px 10px;
       }
@@ -514,6 +555,9 @@
     
     <button class="spin-button" onclick="girar()">Girar</button>
     <div class="result" id="result">Pronto para perder?</div>
+
+    <!-- BOTÃO DE INFORMAÇÃO -->
+    <button class="info-button" onclick="mostrarInfo()">ℹ️ Existe alguma chance de ganhar?</button>
 
     <!-- SEÇÃO DE PAGAMENTO FICTÍCIO -->
     <div class="payment-section">
@@ -673,6 +717,21 @@
       event.target.reset();
       
       return false;
+    }
+
+    // FUNÇÃO PARA MOSTRAR INFORMAÇÃO SOBRE CHANCES
+    function mostrarInfo() {
+      alert(
+        "🎰 ATENÇÃO! 🎰\n\n" +
+        "Sim, tecnicamente existe uma chance de ganhar neste cassino!\n\n" +
+        "📊 A probabilidade é de 0,1% (1 em 1000 tentativas)\n\n" +
+        "Mas vamos ser sinceros:\n" +
+        "• Você provavelmente NUNCA vai conseguir\n" +
+        "• Ninguém que conhecemos conseguiu\n" +
+        "• Mas... é POSSÍVEL! 🤷‍♂️\n\n" +
+        "💡 Dica: Continue tentando (ou não, a escolha é sua!)\n\n" +
+        "Boa sorte, você vai precisar! 🍀"
+      );
     }
 
     // Adiciona efeito de hover nos rolos
