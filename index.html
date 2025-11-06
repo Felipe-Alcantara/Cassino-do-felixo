@@ -28,17 +28,17 @@
 
     /* Elementos decorativos de cassino */
     body::after {
-      content: '♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔 ♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔';
+      content: '♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔 💰 7️⃣ 🍊 ♠ ♣ ♥ ♦ 🎰 🎲 🃏 💎 ⭐ 🍒 🍋 🔔 💰 7️⃣ 🍊 ♠ ♣ ♥ ♦ 🎰 🎲';
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      font-size: 2rem;
-      line-height: 4rem;
+      font-size: 3rem;
+      line-height: 5rem;
       word-wrap: break-word;
       word-break: break-all;
-      opacity: 0.03;
+      opacity: 0.05;
       pointer-events: none;
       z-index: 0;
       text-align: center;
@@ -551,8 +551,8 @@
     /* Elementos flutuantes de cassino */
     .casino-element {
       position: fixed;
-      font-size: 2rem;
-      opacity: 0.15;
+      font-size: 4rem;
+      opacity: 0.2;
       pointer-events: none;
       z-index: 0;
       animation: floatElement 15s ease-in-out infinite;
@@ -563,20 +563,30 @@
         transform: translateY(0) rotate(0deg);
       }
       50% {
-        transform: translateY(-30px) rotate(180deg);
+        transform: translateY(-40px) rotate(180deg);
       }
     }
 
-    .casino-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .casino-element:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
-    .casino-element:nth-child(3) { top: 40%; left: 15%; animation-delay: 4s; }
-    .casino-element:nth-child(4) { top: 60%; right: 8%; animation-delay: 1s; }
-    .casino-element:nth-child(5) { top: 75%; left: 10%; animation-delay: 3s; }
-    .casino-element:nth-child(6) { top: 30%; right: 20%; animation-delay: 5s; }
-    .casino-element:nth-child(7) { top: 85%; right: 15%; animation-delay: 2.5s; }
-    .casino-element:nth-child(8) { top: 15%; left: 25%; animation-delay: 4.5s; }
-    .casino-element:nth-child(9) { top: 50%; left: 5%; animation-delay: 1.5s; }
-    .casino-element:nth-child(10) { top: 70%; right: 25%; animation-delay: 3.5s; }
+    .casino-element:nth-child(1) { top: 8%; left: 3%; animation-delay: 0s; font-size: 3.5rem; }
+    .casino-element:nth-child(2) { top: 18%; right: 8%; animation-delay: 2s; font-size: 4.5rem; }
+    .casino-element:nth-child(3) { top: 35%; left: 12%; animation-delay: 4s; font-size: 4rem; }
+    .casino-element:nth-child(4) { top: 55%; right: 5%; animation-delay: 1s; font-size: 5rem; }
+    .casino-element:nth-child(5) { top: 72%; left: 8%; animation-delay: 3s; font-size: 3.8rem; }
+    .casino-element:nth-child(6) { top: 25%; right: 18%; animation-delay: 5s; font-size: 4.2rem; }
+    .casino-element:nth-child(7) { top: 82%; right: 12%; animation-delay: 2.5s; font-size: 4.8rem; }
+    .casino-element:nth-child(8) { top: 12%; left: 22%; animation-delay: 4.5s; font-size: 3.6rem; }
+    .casino-element:nth-child(9) { top: 48%; left: 3%; animation-delay: 1.5s; font-size: 4.4rem; }
+    .casino-element:nth-child(10) { top: 68%; right: 22%; animation-delay: 3.5s; font-size: 5.2rem; }
+    .casino-element:nth-child(11) { top: 5%; left: 40%; animation-delay: 1.8s; font-size: 4.6rem; }
+    .casino-element:nth-child(12) { top: 28%; right: 35%; animation-delay: 3.2s; font-size: 3.9rem; }
+    .casino-element:nth-child(13) { top: 42%; left: 30%; animation-delay: 0.5s; font-size: 4.3rem; }
+    .casino-element:nth-child(14) { top: 62%; right: 40%; animation-delay: 4.8s; font-size: 5.5rem; }
+    .casino-element:nth-child(15) { top: 78%; left: 35%; animation-delay: 2.2s; font-size: 4.1rem; }
+    .casino-element:nth-child(16) { top: 15%; right: 45%; animation-delay: 3.8s; font-size: 3.7rem; }
+    .casino-element:nth-child(17) { top: 88%; right: 30%; animation-delay: 1.2s; font-size: 4.9rem; }
+    .casino-element:nth-child(18) { top: 32%; left: 50%; animation-delay: 4.2s; font-size: 5.3rem; }
+    .casino-element:nth-child(19) { top: 52%; right: 50%; animation-delay: 2.8s; font-size: 3.5rem; }
+    .casino-element:nth-child(20) { top: 92%; left: 45%; animation-delay: 0.8s; font-size: 4.7rem; }
 
     /* Responsividade */
     @media (max-width: 768px) {
@@ -721,6 +731,16 @@
   <div class="casino-element">💎</div>
   <div class="casino-element">🍒</div>
   <div class="casino-element">⭐</div>
+  <div class="casino-element">♠</div>
+  <div class="casino-element">♥</div>
+  <div class="casino-element">🔔</div>
+  <div class="casino-element">🍋</div>
+  <div class="casino-element">♦</div>
+  <div class="casino-element">🎰</div>
+  <div class="casino-element">💰</div>
+  <div class="casino-element">♣</div>
+  <div class="casino-element">7️⃣</div>
+  <div class="casino-element">🍊</div>
 
   <header>
     <h1>Cassino <b>Impossível de Ganhar</b></h1>
