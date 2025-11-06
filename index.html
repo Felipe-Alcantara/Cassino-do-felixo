@@ -384,7 +384,8 @@
       }
 
       main {
-        padding: 25px;
+        padding: 20px;
+        width: 95%;
       }
 
       main h2 {
@@ -406,13 +407,89 @@
         font-size: 1.1rem;
       }
 
+      .spin-button::before {
+        left: 15px;
+        font-size: 1.2rem;
+      }
+
       .result {
         font-size: 1.2rem;
         padding: 15px;
       }
 
       .payment-section {
-        padding: 25px;
+        padding: 20px 15px;
+      }
+
+      .payment-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .payment-form {
+        width: 100%;
+        max-width: 100%;
+        gap: 15px;
+      }
+
+      .payment-form input {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+      }
+
+      .payment-form label {
+        font-size: 0.9rem;
+      }
+
+      .bet-button {
+        padding: 14px 30px;
+        font-size: 1rem;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+      }
+
+      main {
+        padding: 15px;
+        width: 95%;
+      }
+
+      main h2 {
+        font-size: 1.2rem;
+      }
+
+      .machine-container {
+        gap: 10px;
+      }
+
+      .machine-reel {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .spin-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+
+      .result {
+        font-size: 1rem;
+        padding: 12px;
+      }
+
+      .payment-section {
+        padding: 15px 10px;
+      }
+
+      .payment-section h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
