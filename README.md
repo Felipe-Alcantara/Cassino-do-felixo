@@ -199,5 +199,4 @@ Contribuições, issues e sugestões são bem-vindas!
 **Feito com 💜 e um pouco de malícia por Felipe Alcântara**
 
 *"Provando que nem todos os cassinos são honestos... especialmente este!"* 😄
-
 </div>
